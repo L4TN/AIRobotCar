@@ -1,0 +1,25 @@
+import pyautogui
+import time
+
+
+class Robot:
+    def start_robot():
+        pyautogui.hotkey('win', 'r')
+        time.sleep(1)
+        command = 'C:\\Users\\Administrator\\AppData\\Local\\Programs\\Arduino IDE\\Arduino IDE.exe'
+        pyautogui.typewrite(command)
+        pyautogui.press('enter')
+        time.sleep(1)
+        pyautogui.hotkey('win', 'up')
+        time.sleep(1)
+        pyautogui.hotkey('ctrl', 'shift', 'm')
+        time.sleep(3)
+        width, height = pyautogui.size()  # obtem as dimensoes da tela
+        # move o cursor para metade superior da tela
+        pyautogui.moveTo(width/2, height/4, duration=0.25)
+        pyautogui.click()
+
+    def typing_robot(command):
+        print(command)
+        pyautogui.typewrite(command)
+        pyautogui.press('enter')
